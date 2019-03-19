@@ -32,7 +32,6 @@ public class MainHWActivity extends AppCompatActivity {
         headerView = new HeaderView(this);
         navigationView.addHeaderView(headerView);
 
-
         headerView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

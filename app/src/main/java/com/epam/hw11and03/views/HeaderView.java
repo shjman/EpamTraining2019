@@ -20,8 +20,7 @@ public class HeaderView extends LinearLayout {
     private ImageView headerIcon;
 
     public HeaderView(Context context) {
-        super(context);
-        init();
+        this(context, null);
     }
 
     public HeaderView(Context context, @Nullable AttributeSet attrs) {
