@@ -39,27 +39,28 @@ public class MainHWActivity extends AppCompatActivity {
             }
         });
 
-        navigationView.setNavigationItemSelectedListener(
-                new NavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                        menuItem.setChecked(true);
-                        switch (menuItem.getItemId()) {
-                            case (R.id.nav_bike):
-                                Log.d(TAG, "R.id.nav_bike");
-                                setFragment(new FirstFragment());
+        NavigationView.OnNavigationItemSelectedListener clickListenerNavigationView = new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                menuItem.setChecked(true);
+                switch (menuItem.getItemId()) {
+                    case (R.id.nav_bike):
+                        Log.d(TAG, "R.id.nav_bike");
+                        setFragment(new FirstFragment());
 
-                                break;
-                            case (R.id.nav_audio):
-                                Log.d(TAG, "R.id.nav_audio");
-                                setFragment(new SecondFragment());
+                        break;
+                    case (R.id.nav_audio):
+                        Log.d(TAG, "R.id.nav_audio");
+                        setFragment(new SecondFragment());
 
-                                break;
-                        }
-                        drawerLayout.closeDrawers();
-                        return true;
-                    }
-                });
+                        break;
+                }
+                drawerLayout.closeDrawers();
+                return true;
+            }
+        };
+
+        navigationView.setNavigationItemSelectedListener(clickListenerNavigationView);
     }
 
     private void setFragment(@NonNull Fragment fragment) {

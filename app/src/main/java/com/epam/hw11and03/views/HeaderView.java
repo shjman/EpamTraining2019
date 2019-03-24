@@ -19,18 +19,19 @@ public class HeaderView extends LinearLayout {
     private TextView headerEmailTextView;
     private ImageView headerIcon;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public HeaderView(Context context) {
         this(context, null);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public HeaderView(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-        init();
+        this(context, attrs, 0);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public HeaderView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init();
+        this(context, attrs, defStyleAttr, 0);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
