@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -80,7 +79,6 @@ public class StudentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private void updateItems(final List<Student> newStudentsList) {
         DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new MyDiffCallback(newStudentsList, studentsList));
         diffResult.dispatchUpdatesTo(this);
-        notifyDataSetChanged();
     }
 
     public class MyDiffCallback extends DiffUtil.Callback {
@@ -111,12 +109,6 @@ public class StudentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         @Override
         public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
             return oldStudent.get(oldItemPosition).equals(newStudent.get(newItemPosition));
-        }
-
-        @Nullable
-        @Override
-        public Object getChangePayload(int oldItemPosition, int newItemPosition) {
-            return super.getChangePayload(oldItemPosition, newItemPosition);
         }
     }
 
