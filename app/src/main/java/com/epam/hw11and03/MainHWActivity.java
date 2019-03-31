@@ -39,34 +39,34 @@ public class MainHWActivity extends AppCompatActivity {
             }
         });
 
-        NavigationView.OnNavigationItemSelectedListener clickListenerNavigationView = new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                menuItem.setChecked(true);
-                switch (menuItem.getItemId()) {
-                    case (R.id.nav_bike):
-                        Log.d(TAG, "R.id.nav_bike");
-                        setFragment(new FirstFragment());
-
-                        break;
-                    case (R.id.nav_audio):
-                        Log.d(TAG, "R.id.nav_audio");
-                        setFragment(new SecondFragment());
-
-                        break;
-                }
-                drawerLayout.closeDrawers();
-                return true;
-            }
-        };
-
-        navigationView.setNavigationItemSelectedListener(clickListenerNavigationView);
+        navigationView.setNavigationItemSelectedListener(new HomeworkNavigationItemSelectedListener());
     }
 
     private void setFragment(@NonNull Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.container_frame_layout, fragment);
         transaction.commit();
+    }
 
+    private class HomeworkNavigationItemSelectedListener implements NavigationView.OnNavigationItemSelectedListener {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+            menuItem.setChecked(true);
+            switch (menuItem.getItemId()) {
+                case (R.id.nav_bike):
+                    Log.d(TAG, "R.id.nav_bike");
+                    setFragment(new FirstFragment());
+
+                    break;
+                case (R.id.nav_audio):
+                    Log.d(TAG, "R.id.nav_audio");
+                    setFragment(new SecondFragment());
+
+                    break;
+            }
+            drawerLayout.closeDrawers();
+            return true;
+        }
     }
 }
